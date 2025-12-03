@@ -1,0 +1,109 @@
+{
+    "layer": "top",
+    "position": "bottom",
+
+    "margin": {
+	"top": 0,
+	"bottom": 6,
+	"left": 10,
+	"right": 10
+	},
+
+    "modules-left": [
+        "custom/arch-icon",
+        "niri/workspaces",
+        "niri/window"
+    ],
+
+    "modules-right": [
+        "cpu",
+        "memory",
+        "disk",
+        "pulseaudio",
+        "backlight",
+        "network",
+        "battery",
+        "clock"
+    ],
+
+    // --- LEFT ---
+
+    "custom/arch-icon": {
+        "format": "  ",
+        "tooltip": false
+    },
+
+    "niri/workspaces": {
+        "format": "{value}",
+        "format-icons": {
+            "active": "",
+            "inactive": ""
+        },
+        "disable-scroll": false
+    },
+
+    "niri/window": {
+        "format": "{title}",
+	"icon": true,
+        "icon-size": 18,
+	"expand": false,
+        "tooltip": true
+    },
+
+    // --- RIGHT MODULES ---
+
+    "cpu": {
+        "format": "  {usage}% ",
+	"on-click": "kitty -e htop",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "  {percentage}% ",
+	"on-click": "kitty -e htop",
+        "tooltip": true
+    },
+
+    "disk": {
+        "format": " 󰋊 {percentage_used}% ",
+	"on-click": "kitty -e htop",
+        "path": "/"
+    },
+
+    // PipeWire via pulseaudio module
+    "pulseaudio": {
+        "format": "  {volume}% ",
+        "format-muted": " 󰖁 ",
+        "on-click": "pwvucontrol",
+        "tooltip": true,
+        "scroll-step": 1,
+        "max-volume": 150 // formatting only; real limit depends on pw
+    },
+
+    "backlight": {
+        "format": " 󱩎 {percent}% ",
+        "device": "intel_backlight",
+        "tooltip": true
+    },
+
+    "network": {
+        "format-wifi": "  ",               // hide SSID normally
+        "tooltip-format": "{essid} ({signalStrength}%)",
+        "format-ethernet": " 󰈀 ",
+        "format-disconnected": "  ",
+        "on-click": "kitty -e nmtui"
+    },
+
+    "battery": {
+        "format": " {icon} {capacity}% ",
+        "format-icons": ["","","","",""]
+    },
+
+"clock": {
+	"interval": 1,
+	"tooltip": true,
+	"format": " {:%H:%M:%S} ",
+	"tooltip-format": "{:%Y-%m-%d}"
+	}
+}
+

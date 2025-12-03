@@ -1,0 +1,132 @@
+/* === Gruvbox Dark Palette (true values) === */
+@define-color bg_alt	#282828;
+@define-color bg	#1d2021;
+@define-color fg      #ebdbb2;
+
+@define-color red     #cc241d;
+@define-color orange  #d65d0e;
+@define-color yellow  #d79921;
+@define-color green   #b8bb26;
+@define-color aqua    #8ec07c;
+@define-color blue    #458588;
+@define-color purple  #b16286;
+
+
+/* === Main bar === */
+window#waybar {
+    background: @bg;
+    color: @fg;
+    font-family: "ComicShannsMono Nerd Font Mono", monospace;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === Generic module box === */
+/* Waybar allows styling by module ID only */
+#custom-arch-icon,
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#backlight,
+#network,
+#battery,
+#clock,
+#window,
+#workspaces button {
+    background: @bg_alt;
+    color: @fg;
+    padding: 2px 6px;
+    border-radius: 0;
+    margin: 4px 2px 4px;
+}
+
+
+/* === Workspaces === */
+#workspaces button.active {
+    background: @orange;
+    color: #1d2021;
+}
+
+#workspaces button:hover {
+    background: @yellow;
+    color: #1d2021;
+}
+
+
+/* === Window (application icon/title) === */
+#window {
+    padding-left: 10px;
+    padding-right: 10px;
+    /* GTK truncation requires these: */
+    min-width: 20px;
+}
+
+
+/* === CPU / Memory / Disk === */
+#cpu:hover      { background: @red;   color: @bg_alt; }
+#memory:hover   { background: @orange; color: @bg_alt; }
+#disk:hover     { background: @yellow; color: @bg_alt; }
+
+#custom-arch-icon {font-size: 25px; padding: 0px;}
+#network{font-size: 25px; padding: 0px;}
+/* === PipeWire volume === */
+#pulseaudio:hover { 
+    background: @green;
+    color: @bg_alt;
+}
+
+#pulseaudio.muted {
+    background: @red;
+    color: @bg_alt;
+}
+
+
+/* === Brightness === */
+#backlight:hover {
+    background: @aqua;
+    color: @bg_alt;
+}
+
+
+/* === Network === */
+#network.disconnected {
+    background: @red;
+    color: @bg_alt;
+}
+
+#network:hover {
+    background: @blue;
+    color: @bg_alt;
+}
+
+
+/* === Battery === */
+#battery.warning {
+    background: @red;
+    color: @bg_alt;
+}
+
+#battery:hover {
+    background: @purple;
+    color: @bg_alt;
+}
+
+
+/* === Clock === */
+#clock:hover {
+    background: @red;
+    color: @bg_alt;
+}
+
+
+/* === Tooltip === */
+tooltip {
+    background: @bg_alt;
+    border-radius: 0px;
+    padding: 6px;
+    border: 1px solid #3c3836;
+    color: @fg;
+}
+
