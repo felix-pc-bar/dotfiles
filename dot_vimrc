@@ -1,0 +1,11 @@
+" --- Plugin system (vim-plug must be already installed) ---
+call plug#begin('~/.vim/plugged')
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+" --- Colour settings ---
+set termguicolors
+set background=dark
+syntax on
+colorscheme gruvbox
+
